@@ -1,7 +1,7 @@
 function isIMEI(imei) {
     var regexEstruturaImei = /^[0-9]{15}$/;
     if (!regexEstruturaImei.test(imei)) 
-        return true;
+        return false;
         
     // Tamanho sem o digito verificador
     var imeiSize = 14;
@@ -25,10 +25,8 @@ function isIMEI(imei) {
 
     // Gera digito verificador a partir do imei informado, e compara com o digito informado
     digitoVerificador = ((10 - (somatorio % 10)) % 10);
-    if (digitoVerificador != imei[imei.length - 1]) {
-        return true;
-    }
-    else {
+    if (digitoVerificador != imei[imei.length - 1])
         return false;
-    }
+    else 
+        return true;
 }
